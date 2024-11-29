@@ -215,38 +215,47 @@ If you encounter any issues, follow the steps to configure AWS for local develop
 
 Set up temporary credentials with IAM Identity Center and AWS Organizations.
 (i) Configure the appropriate permissions for Amplify.
+
 (ii) Add users and assign permissions for access.
+
 (iii) After configuring, you can use the sandbox environment without affecting the deployed version.
+
 Enable with AWS Organizations and continue. It now navigates to a dashboard
+
 ![Step 35](images/35.png)
 
 You can go to aws organizations service and see there is a root and the user
 ![Step 36](images/36.png)
 
-Go to services tab in aws organisation and make sure SSo is enabled
-![Step 37](images/37.png)
+Go to services tab in aws organisation and make sure SSO is enabled
+![Step 38](images/38.png)
 
 Currently we don’t have any users or permission sets in IAM Identity Center
 Go to permission sets and click on Create permission set on right
-![Step 39](images/39.png)
+
 We will have two options Predefined permission set and Custom permission set. Click on custom permission set.
 ![Step 40](images/40.png)
 
 Expand AWS managed policies and filter for amplify
-The one you want is AmplifyBackendDeployFullAccess and click next
 ![Step 41](images/41.png)
+The one you want is AmplifyBackendDeployFullAccess and click next
+![Step 42](images/42.png)
 
 Specify permission details and say next
-![Step 42](images/42.png)
-Review and create
-![Step 43](images/43.png)
-Now go to IAM Identity Center and add the users going to Users who could use the above permissions created
-![Step 348(images/38.png)
 
-Give a valid email , preferable give the username as amplify-admin and click next
+![Step 43](images/43.png)
+
+Review and create
 ![Step 44](images/44.png)
 
+Now go to IAM Identity Center and add the users going to Users who could use the above permissions created
+![Step 39(images/39.png)
+
+Give a valid email , preferable give the username as amplify-admin and click next
+![Step 45](images/45.png)
+
 Skip the groups and say next
+
 Review all details and then Add user
 
 Now go to AWS accounts tab on left, now we have user but don’t have access to AWS account so we have to give it. Click on Assign users or groups
@@ -254,30 +263,33 @@ Now go to AWS accounts tab on left, now we have user but don’t have access to 
 ![Step 45](images/45.png)
 
 Select amplify-admin and say next
-![Step 46](images/46.png)
-Check the permission set and next
 ![Step 47](images/47.png)
+![Step 46](images/46.png)
 
-Review and submit
+Check the permission set and next
 
 ![Step 48](images/48.png)
 
-Then go to user and click on the above created amplify-admin user and then click on send email verification link
+Review and submit
+
 ![Step 49](images/49.png)
 
-After verifying login and change the password.
+Then go to user and click on the above created amplify-admin user and then click on send email verification link
 ![Step 50](images/50.png)
 
-Select the MFA and click next
+Verify the email.
 ![Step 51](images/51.png)
 
-Scan the QR code on your phone and get the code
+Select the MFA and click next
 ![Step 52](images/52.png)
 
+Scan the QR code on your phone and get the code
 ![Step 53](images/53.png)
 
-Final Step is to change the password
 ![Step 54](images/54.png)
+
+Final Step is to change the password
+![Step 55](images/55.png)
 
 Now we have to interact with the resources in that account from my local dev environment using aws cli
 Make sure to check AWS cli is installed.You can check using the following command:
@@ -285,32 +297,36 @@ $aws –version
 
 If not there install it and run the following commands:
 $aws configure sso
-![Step 55](images/55.png)
-After you provide this information, the browser will automatically open asking you to sign in with the username and password you just created and configure a multi-factor device to authenticate.
-![Step 56](images/56.png)
 
-![Step 57](images/57.png)
-Now return to the terminal and enter the following information:
-![Step 58](images/58.png)
+![Step 60](images/60.png)
+
+
 If you inspect ~/.aws/config, you should now see the SSO profile:
-![Step 59](images/59.png)
+![Step 61](images/61.png)
 
 Now you are ready to use this AWS profile with AWS Amplify. Open your Amplify project and start the sandbox. If you have multiple local profiles or named your profile something other than default, you can specify a profile with --profile.
-
+```
 $npx ampx sandbox
 
 OR
 
 $npx ampx sandbox --profile <profile-name>
+
+```
+
 The output of $npx ampx sandbox command in terminal
-![Step 62](images/62.png)
+
+![Step 64](images/64.png)
+
 On the amplify console, go to Manage sandboxes on right
-![Step 60](images/60.png)
+
+![Step 63](images/63.png)
+
 You see your app is deployed
-![Step 61](images/61.png)
+![Step 62](images/62.png)
 
 If you notice amplify_ouputs.json now it points to the sandbox details in the cloud instead of production branch
-![Step 62](images/62.png)
+![Step 65](images/65.png)
 
 
 ## 12. Test Per-User Authorization
@@ -342,9 +358,9 @@ In App.tsx, update the UI to display user-specific todos:
 <h1>{user?.signInDetails?.loginId}'s todos</h1>
 
 Now create a new account with different email account
-![Step 64](images/64.png)
+![Step 67](images/67.png)
 Now you see a new todo screen you don’t see the old user todos as it is a new user.
-![Step 65](images/65.png)
+![Step 68](images/68.png)
 
 Now you cannot use the old user account as this is a sandbox you have to create again.
 
