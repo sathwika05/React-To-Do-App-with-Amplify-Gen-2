@@ -175,7 +175,8 @@ Review next step of this tutorial.
 
 export default App;
 ```
-9. Testing the App
+## 9. Testing the App
+
 The vs code automatically detects the changes and now we see the changes on the UI with login screen:
 
 ![Step 27](images/27.png)
@@ -190,20 +191,25 @@ We implemented delete too so click on item to delete it. After deletion:
 ![Step 31](images/31.png)
 
 You will be able to log in, add todos, delete them, and sign out.
-10. Push Changes to GitHub
-After making changes, push the updates to GitHub:
 
+## 10. Push Changes to GitHub
+
+After making changes, push the updates to GitHub:
+```
 git commit -am 'Added delete functionality and authenticator'
 git push
+```
 This will trigger a new deployment in AWS Amplify.
 ![Step 33](images/33.png)
 
-11. Set Up a Sandbox for Multiple Environments
+## 11. Set Up a Sandbox for Multiple Environments
+
 To make use of the same code version in different environments without affecting each other:
 
 Run the following command to create a sandbox:
-
+```
 npx ampx sandbox
+```
 ![Step 34](images/34.png)
 If you encounter any issues, follow the steps to configure AWS for local development:
 
@@ -307,7 +313,7 @@ If you notice amplify_ouputs.json now it points to the sandbox details in the cl
 ![Step 62](images/62.png)
 
 
-12. Test Per-User Authorization
+## 12. Test Per-User Authorization
 Make changes to the resource.ts to implement per-user authorization:
 
 '''tsx
@@ -342,10 +348,10 @@ Now you see a new todo screen you don’t see the old user todos as it is a new 
 
 Now you cannot use the old user account as this is a sandbox you have to create again.
 
-13. Push Changes and Test
+## 13. Push Changes and Test
 Push your changes to GitHub and test the app in the cloud.
 
-14. Clean Up
+## 14. Clean Up
 Once testing is complete, delete the sandbox and app resources:
 1. Go to Manage Sandbox and delete the sandbox.
 2. Go to App Settings and delete the app.
