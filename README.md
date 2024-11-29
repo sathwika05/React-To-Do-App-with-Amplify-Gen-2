@@ -7,39 +7,39 @@ Use the template from [AWS Amplify Vite React template](https://github.com/aws-s
 
 ## 2. Deploy to AWS Amplify
 1. Deploy the app to AWS Amplify by choosing GitHub as the deployment option:
-   ![Step 1](images/1.png)
+![Step 1](images/1.png)
 2. Authorize Amplify to access your GitHub:
-   ![Step 2](images/2.png)
+![Step 2](images/2.png)
 3. Select the desired GitHub repository and click **Next**:
-   ![Step 3](images/3.png)
+![Step 3](images/3.png)
 4. Keep the build settings as default and click **Next**:
-   ![Step 4](images/4.png)
+![Step 4](images/4.png)
 5. Review your settings and click **Save and Deploy**.
-   ![Step 5](images/5.png)
-   ![Step 6](images/6.png) 
+![Step 5](images/5.png)
+![Step 6](images/6.png)
 7. Wait for the deployment to complete.
-   ![Step 7](images/7.png)
+![Step 7](images/7.png)
 8. Once the deployment is complete, click on the domain link to navigate to the To-Do app.
-   ![Step 8](images/8.png)
+![Step 8](images/8.png)
 
 ## 3. Interact with the To-Do App
 1. Add todos to the app.
-   ![Step 9](images/9.png)
+![Step 9](images/9.png)
 2. Above the deployed app, you'll see the branch name (e.g., `main`). Click on it to go to **Deployed Backend Resources**.
-   ![Step 10](images/10.png)
+![Step 10](images/10.png)
 3. You can see tables created automatically in DynamoDB.
-   ![Step 11](images/11.png)
+![Step 11](images/11.png)
 4. The **Data Manager** section under **Data** will display todos added.
-   ![Step 12](images/12.png)
+![Step 12](images/12.png)
 5. You can also see GraphQL queries under the **API Playground**.
-   ![Step 13](images/13.png)
+![Step 13](images/13.png)
 6. The front-end part of the app is available under **Hosting**.
-   ![Step 14](images/14.png)
+![Step 14](images/14.png)
 7. For backend operations, go to the specific branch (e.g., `main`).
 
 ## 4. Clone the Repository Locally
 To modify the code and push updates directly, clone the repository using:
- ![Step 15](images/15.png)
+![Step 15](images/15.png)
 ```bash
 git clone https://github.com/sathwika05/amplify-vite-react-template.git
 
@@ -86,13 +86,13 @@ In App.tsx, add the following deleteTodo function:
 '''tsx
 
 function deleteTodo(id: string) {
-  client.models.Todo.delete({ id });
+client.models.Todo.delete({ id });
 }
 Add the delete functionality to the <li> element:
 
 '''tsx
 
-onClick={() => deleteTodo(todo.id)} in the list tag  of return
+onClick={() => deleteTodo(todo.id)} in the list tag of return
 ![Step 25](images/25.png)
 
 ### Implement Login UI
@@ -108,7 +108,7 @@ Wrap the <App /> component in Authenticator:
 '''tsx
 
 <Authenticator>
-  <App />
+<App />
 </Authenticator>
 Sign Out Button
 In App.tsx, import the useAuthenticator hook and add a sign-out button:
@@ -132,45 +132,45 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function App() {
-  const { signOut } = useAuthenticator();
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+const { signOut } = useAuthenticator();
+const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
+useEffect(() => {
+client.models.Todo.observeQuery().subscribe({
+next: (data) => setTodos([...data.items]),
+});
+}, []);
 
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
-  }
-   
-  function deleteTodo(id: string) {
-    client.models.Todo.delete({ id })
-  }
+function createTodo() {
+client.models.Todo.create({ content: window.prompt("Todo content") });
+}
 
-  return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li 
-          onClick={() => deleteTodo(todo.id)}
-          key={todo.id}>
-          {todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
-      <button onClick={signOut}>Sign out</button>
-    </main>
-  );
+function deleteTodo(id: string) {
+client.models.Todo.delete({ id })
+}
+
+return (
+<main>
+<h1>My todos</h1>
+<button onClick={createTodo}>+ new</button>
+<ul>
+{todos.map((todo) => (
+<li
+onClick={() => deleteTodo(todo.id)}
+key={todo.id}>
+{todo.content}</li>
+))}
+</ul>
+<div>
+🥳 App successfully hosted. Try creating a new todo.
+<br />
+<a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
+Review next step of this tutorial.
+</a>
+</div>
+<button onClick={signOut}>Sign out</button>
+</main>
+);
 }
 
 export default App;
@@ -211,7 +211,7 @@ Set up temporary credentials with IAM Identity Center and AWS Organizations.
 (i) Configure the appropriate permissions for Amplify.
 (ii) Add users and assign permissions for access.
 (iii) After configuring, you can use the sandbox environment without affecting the deployed version.
-Enable with AWS Organizations and continue. It now navigates to a dashboard 
+Enable with AWS Organizations and continue. It now navigates to a dashboard
 ![Step 35](images/35.png)
 
 You can go to aws organizations service and see there is a root and the user
@@ -221,9 +221,9 @@ Go to services tab in aws organisation and make sure SSo is enabled
 ![Step 37](images/37.png)
 
 Currently we don’t have any users or permission sets in IAM Identity Center
-Go to permission sets and click on Create permission set on right 
+Go to permission sets and click on Create permission set on right
 ![Step 39](images/39.png)
-We will have two options Predefined permission set and  Custom permission set. Click on custom permission set.
+We will have two options Predefined permission set and Custom permission set. Click on custom permission set.
 ![Step 40](images/40.png)
 
 Expand AWS managed policies and filter for amplify
@@ -232,9 +232,9 @@ The one you want is AmplifyBackendDeployFullAccess and click next
 
 Specify permission details and say next
 ![Step 42](images/42.png)
-Review and create 
+Review and create
 ![Step 43](images/43.png)
-Now go to IAM Identity Center and add the users going to Users who could use the above permissions created 
+Now go to IAM Identity Center and add the users going to Users who could use the above permissions created
 ![Step 348(images/38.png)
 
 Give a valid email , preferable give the username as amplify-admin and click next
@@ -249,21 +249,21 @@ Now go to AWS accounts tab on left, now we have user but don’t have access to 
 
 Select amplify-admin and say next
 ![Step 46](images/46.png)
-Check the permission set and next 
-![Step 47](images/47.png) 
+Check the permission set and next
+![Step 47](images/47.png)
 
 Review and submit
 
 ![Step 48](images/48.png)
 
-Then go to user and click on the above created amplify-admin  user and then click on send email verification link
+Then go to user and click on the above created amplify-admin user and then click on send email verification link
 ![Step 49](images/49.png)
 
 After verifying login and change the password.
 ![Step 50](images/50.png)
 
-Select the MFA and click next 
- ![Step 51](images/51.png)
+Select the MFA and click next
+![Step 51](images/51.png)
 
 Scan the QR code on your phone and get the code
 ![Step 52](images/52.png)
@@ -275,9 +275,9 @@ Final Step is to change the password
 
 Now we have to interact with the resources in that account from my local dev environment using aws cli
 Make sure to check AWS cli is installed.You can check using the following command:
- $aws –version
+$aws –version
 
- If not there install it and run the following commands:
+If not there install it and run the following commands:
 $aws configure sso
 ![Step 55](images/55.png)
 After you provide this information, the browser will automatically open asking you to sign in with the username and password you just created and configure a multi-factor device to authenticate.
@@ -293,7 +293,7 @@ Now you are ready to use this AWS profile with AWS Amplify. Open your Amplify pr
 
 $npx ampx sandbox
 
-OR 
+OR
 
 $npx ampx sandbox --profile <profile-name>
 The output of $npx ampx sandbox command in terminal
@@ -303,7 +303,7 @@ On the amplify console, go to Manage sandboxes on right
 You see your app is deployed
 ![Step 61](images/61.png)
 
-If you notice amplify_ouputs.json now it points to the sandbox details in the cloud  instead of production branch
+If you notice amplify_ouputs.json now it points to the sandbox details in the cloud instead of production branch
 ![Step 62](images/62.png)
 
 
@@ -313,21 +313,21 @@ Make changes to the resource.ts to implement per-user authorization:
 '''tsx
 
 const schema = a.schema({
-  Todo: a.model({
-    content: a.string(),
-  }).authorization(allow => [allow.owner()]),
+Todo: a.model({
+content: a.string(),
+}).authorization(allow => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
 
 export const data = defineData({
-  schema,
-  authorizationModes: {
-    defaultAuthorizationMode: "userPool",
-    apiKeyAuthorizationMode: {
-      expiresInDays: 30,
-    },
-  },
+schema,
+authorizationModes: {
+defaultAuthorizationMode: "userPool",
+apiKeyAuthorizationMode: {
+expiresInDays: 30,
+},
+},
 });
 In App.tsx, update the UI to display user-specific todos:
 
@@ -349,6 +349,5 @@ Push your changes to GitHub and test the app in the cloud.
 Once testing is complete, delete the sandbox and app resources:
 1. Go to Manage Sandbox and delete the sandbox.
 2. Go to App Settings and delete the app.
-
 
 
