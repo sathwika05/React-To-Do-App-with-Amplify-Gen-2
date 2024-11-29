@@ -102,7 +102,7 @@ In src/main.tsx, import the Authenticator component:
 
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-Wrap the <App /> component in Authenticator:
+Wrap the App component in Authenticator:
 ![Step 26](images/26.png)
 
 '''tsx
@@ -122,7 +122,7 @@ const { signOut } = useAuthenticator();
 <button onClick={signOut}>Sign out</button>
 Your App.tsx should look like this:
 
-'''tsx
+```tsx
 
 import { useEffect, useState } from "react";
 import { useAuthenticator } from '@aws-amplify/ui-react';
@@ -174,7 +174,7 @@ Review next step of this tutorial.
 }
 
 export default App;
-
+```
 9. Testing the App
 The vs code automatically detects the changes and now we see the changes on the UI with login screen:
 
