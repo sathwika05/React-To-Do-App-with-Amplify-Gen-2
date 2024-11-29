@@ -40,18 +40,23 @@ Use the template from [AWS Amplify Vite React template](https://github.com/aws-s
 ## 4. Clone the Repository Locally
 To modify the code and push updates directly, clone the repository using:
  ![Step 15](images/15.png)
-
+```bash
 git clone https://github.com/sathwika05/amplify-vite-react-template.git
 
 ## 5. Set Up the Project Locally
 Navigate to the folder containing the src directory.
 Run the following command to install dependencies:
+
 npm install
+
 If the command results in errors, check your Node version or follow suggestions in the command prompt.
+
 ![Step 16](images/16.png)
+
 Once installed, run the app locally:
 
 npm run dev
+
 ![Step 17](images/17.png)
 Open the app in your browser.
 ![Step 18](images/18.png)
@@ -63,10 +68,10 @@ The amplify_outputs.json file contains essential backend details, including endp
 
 1. Go to the AWS Amplify console.
 2. Click on the main branch and go to the Deployed Backend Resources tab.
-![Step 20](images/20.png)
 3. On the right side, click Download amplify_outputs.json.
-![Step 21](images/21.png)
+![Step 20](images/20.png)
 4. Place this file at the same level as your src folder.
+![Step 21](images/21.png)
 5. Refresh the page to connect the app with the backend resources.
 ![Step 22](images/22.png)
 ## 7. Add Todos and Test the App
@@ -87,7 +92,7 @@ Add the delete functionality to the <li> element:
 
 '''tsx
 
-onClick={() => deleteTodo(todo.id)} in the <li> of return
+onClick={() => deleteTodo(todo.id)} in the list tag  of return
 ![Step 25](images/25.png)
 
 ### Implement Login UI
@@ -342,7 +347,6 @@ Push your changes to GitHub and test the app in the cloud.
 
 14. Clean Up
 Once testing is complete, delete the sandbox and app resources:
-
 1. Go to Manage Sandbox and delete the sandbox.
 2. Go to App Settings and delete the app.
 
