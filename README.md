@@ -1,6 +1,6 @@
 vite
 # React-To-Do-App-with-Amplify-Gen-2
-Follow the steps below to deploy and develop a To-Do app using the [Amplify Vite React template](https://github.com/aws-samples/amplify-vite-react-template).
+Steps to deploy and develop a To-Do app using the [Amplify Vite React template](https://github.com/aws-samples/amplify-vite-react-template) with Amplify-Gen-2.
 
 ## 1. Create a GitHub Repository
 Use the template from [AWS Amplify Vite React template](https://github.com/aws-samples/amplify-vite-react-template) and create a repository in your GitHub account.
