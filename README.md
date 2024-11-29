@@ -40,7 +40,7 @@ Use the template from [AWS Amplify Vite React template](https://github.com/aws-s
 ## 4. Clone the Repository Locally
 To modify the code and push updates directly, clone the repository using:
 ![Step 15](images/15.png)
-```bash
+
 git clone https://github.com/sathwika05/amplify-vite-react-template.git
 
 ## 5. Set Up the Project Locally
