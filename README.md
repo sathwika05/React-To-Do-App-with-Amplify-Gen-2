@@ -353,10 +353,11 @@ expiresInDays: 30,
 });
 In App.tsx, update the UI to display user-specific todos:
 
-'''tsx
+'''
 
 <h1>{user?.signInDetails?.loginId}'s todos</h1>
 
+'''
 Now create a new account with different email account
 ![Step 67](images/67.png)
 Now you see a new todo screen you don’t see the old user todos as it is a new user.
